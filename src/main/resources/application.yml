@@ -1,3 +1,10 @@
 spring:
   application:
     name: event_locator
+  profiles:
+    active: prod
+server:
+  servlet:
+    context-path: /api/v1
+  address: 0.0.0.0
+  port: 8083
