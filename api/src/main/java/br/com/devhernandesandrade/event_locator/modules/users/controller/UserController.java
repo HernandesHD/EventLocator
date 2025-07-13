@@ -3,6 +3,7 @@ package br.com.devhernandesandrade.event_locator.modules.users.controller;
 import br.com.devhernandesandrade.event_locator.exceptions.ValidationException;
 import br.com.devhernandesandrade.event_locator.modules.users.dto.CreateUserRequest;
 import br.com.devhernandesandrade.event_locator.modules.users.useCases.CreateUserUseCase;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
     private final CreateUserUseCase createUserUseCase;
 
     @PostMapping("/register")
-    public ResponseEntity<?> create(@RequestBody CreateUserRequest createUserRequest) {
+    public ResponseEntity<?> create(@Valid @RequestBody CreateUserRequest createUserRequest) {
         try {
             String result = createUserUseCase.execute(createUserRequest);
             return ResponseEntity.status(HttpStatus.CREATED)
