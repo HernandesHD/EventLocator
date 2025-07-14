@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ListEventUseCase {
+public class ListEventsUseCase {
 
     private final EventRepository eventRepository;
 

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class EventController {
 
     private final CreateEventUseCase createEventUseCase;
-    private final ListEventUseCase listEventsUseCase;
+    private final ListEventsUseCase listEventsUseCase;
     private final GetEventByIdUseCase getEventByIdUseCase;
     private final UpdateEventUseCase updateEventUseCase;
     private final SoftDeleteEventUseCase softDeleteEventUseCase;
