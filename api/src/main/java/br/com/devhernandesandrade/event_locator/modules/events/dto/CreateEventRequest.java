@@ -2,6 +2,7 @@ package br.com.devhernandesandrade.event_locator.modules.events.dto;
 
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -18,7 +19,7 @@ public class CreateEventRequest {
     @Size(min = 10, max = 1000, message = "A descrição deve ter entre 10 e 500 caracteres")
     private String description;
 
-    @NotBlank(message = "Data é obrigatório")
+    @NotNull(message = "Data é obrigatório")
     @FutureOrPresent(message = "A data do evento deve ser hoje ou no futuro")
     private LocalDateTime eventDate;
 
@@ -27,5 +28,8 @@ public class CreateEventRequest {
     private String place;
 
     private Integer capacity;
+
+    @NotNull(message = "ID do usuário é obrigatório")
+    private Long userId;
 
 }
