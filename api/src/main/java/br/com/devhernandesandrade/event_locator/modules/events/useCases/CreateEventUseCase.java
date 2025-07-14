@@ -23,6 +23,7 @@ public class CreateEventUseCase {
                 .enabled(false)
                 .deleted(false)
                 .capacity(createEventRequest.getCapacity())
+                .userId(createEventRequest.getUserId())
                 .build();
         this.eventRepository.save(eventEntity);
     }

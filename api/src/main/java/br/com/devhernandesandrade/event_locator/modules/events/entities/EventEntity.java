@@ -1,5 +1,6 @@
 package br.com.devhernandesandrade.event_locator.modules.events.entities;
 
+import br.com.devhernandesandrade.event_locator.modules.users.entities.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,4 +39,10 @@ public class EventEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", updatable = false, insertable = false)
+    private UserEntity user;
+
+    @Column(name = "user_id")
+    private Long userId;
 }
