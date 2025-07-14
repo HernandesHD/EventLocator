@@ -26,4 +26,6 @@ public class CreateEventRequest {
     @Size(min = 2, max = 200, message = "O local deve ter entre 2 e 200 caracteres")
     private String place;
 
+    private Integer capacity;
+
 }
