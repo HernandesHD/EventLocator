@@ -12,3 +12,9 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+
+application:
+  security:
+    jwt:
+      secret-key: fcd0e19d4851ed41c3b2a55a0c2f9e2d6214df84f1bf2fa1c70da6bac75921787d60ed0268ba1e68478585b66cf71ab3421c3f7b7d0a18b6b77eebe9853f5ace
+      expiration: 86400000
