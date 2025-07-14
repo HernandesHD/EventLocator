@@ -14,8 +14,7 @@ public class CreateEventUseCase {
 
     private final EventRepository eventRepository;
 
-    public ResponseEntity<?> execute(CreateEventRequest createEventRequest) {
-
+    public void execute(CreateEventRequest createEventRequest) {
         EventEntity eventEntity = EventEntity.builder()
                 .name(createEventRequest.getTitle())
                 .description(createEventRequest.getDescription())
@@ -26,8 +25,6 @@ public class CreateEventUseCase {
                 .capacity(createEventRequest.getCapacity())
                 .build();
         this.eventRepository.save(eventEntity);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("Evento criado com sucesso");
     }
 
 }
