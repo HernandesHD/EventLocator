@@ -40,12 +40,13 @@ public class SecurityFilter extends OncePerRequestFilter {
                         .build()
                         .parseSignedClaims(jwt);
 
-                var userId = validResultToken.getPayload().getSubject();
+                var userIdString = validResultToken.getPayload().getSubject();
+                Long userId = Long.parseLong(userIdString);
 
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                         validResultToken.getPayload().getSubject(),
                         null,
-                        validResultToken.getPayload().get("authorities", java.util.List.class)
+                        null
                 );
                 request.setAttribute("userId", userId);
 

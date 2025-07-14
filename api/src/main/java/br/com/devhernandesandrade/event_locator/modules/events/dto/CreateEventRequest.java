@@ -29,7 +29,4 @@ public class CreateEventRequest {
 
     private Integer capacity;
 
-    @NotNull(message = "ID do usuário é obrigatório")
-    private Long userId;
-
 }
