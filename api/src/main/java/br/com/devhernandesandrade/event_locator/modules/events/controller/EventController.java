@@ -56,5 +56,4 @@ public class EventController {
         softDeleteEventUseCase.execute(id);
         return ResponseEntity.noContent().build();
     }
-
 }
