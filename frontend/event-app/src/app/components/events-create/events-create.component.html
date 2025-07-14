@@ -1,0 +1,21 @@
+<h2>Criar Evento</h2>
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <label>Título:</label>
+  <input formControlName="title" type="text" />
+
+  <label>Descrição:</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Data:</label>
+  <input formControlName="eventDate" type="datetime-local" />
+
+  <label>Local:</label>
+  <input formControlName="place" type="text" />
+
+  <label>Capacidade:</label>
+  <input formControlName="capacity" type="number" />
+
+  <button type="submit" [disabled]="eventForm.invalid">Criar</button>
+</form>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
