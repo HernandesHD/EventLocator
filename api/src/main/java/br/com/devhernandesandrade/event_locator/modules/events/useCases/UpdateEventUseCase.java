@@ -13,7 +13,7 @@ public class UpdateEventUseCase {
     private final EventRepository eventRepository;
 
     public void execute(Long id, UpdateEventRequest request) {
-        EventEntity event = eventRepository.findById(id)
+        EventEntity event = eventRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(() -> new RuntimeException("Evento não encontrado"));
 
         event.setName(request.getTitle());
