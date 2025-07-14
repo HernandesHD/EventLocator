@@ -3,7 +3,6 @@ package br.com.devhernandesandrade.event_locator.modules.users.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -20,6 +19,5 @@ public class CreateUserRequest {
             message = "A senha deve conter ao menos uma letra maiúscula, uma minúscula e um número, com no mínimo 8 caracteres"
     )
     private String password;
-
 
 }
