@@ -23,7 +23,7 @@ public class EventController {
     private final UpdateEventUseCase updateEventUseCase;
     private final SoftDeleteEventUseCase softDeleteEventUseCase;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> create(HttpServletRequest request, @RequestBody @Valid CreateEventRequest eventRequest) {
         Long userId = (Long) request.getAttribute("userId");
         try {

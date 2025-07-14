@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -22,7 +24,7 @@ public class AuthController {
     public ResponseEntity<?> auth(@RequestBody @Valid CreateAuthRequest createAuthRequest) {
         try {
             var token = createAuthUseCase.execute(createAuthRequest);
-            return ResponseEntity.ok(token);
+            return ResponseEntity.ok(Map.of("token", token));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
