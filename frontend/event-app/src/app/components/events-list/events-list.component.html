@@ -1,0 +1,82 @@
+<h2>Lista de Eventos</h2>
+
+<div class="actions">
+  <button (click)="createEvent()">Novo Evento</button>
+  <button (click)="logout()">Sair</button>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="events.length > 0; else loadingOrEmpty">
+  <ul class="event-list">
+    <li *ngFor="let event of events" class="event-item">
+      <h3>{{ event.name }}</h3>
+      <p><strong>Descrição:</strong> {{ event.description }}</p>
+      <p><strong>Local:</strong> {{ event.place }}</p>
+      <p><strong>Data:</strong> {{ event.eventDate | date:'short' }}</p>
+      <p><strong>Capacidade:</strong> {{ event.capacity }}</p>
+
+      <div class="event-actions">
+        <button (click)="editEvent(event)">Editar</button>
+        <button (click)="deleteEvent(event.id)">Excluir</button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="pagination">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+    <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages - 1">Próxima</button>
+  </div>
+</div>
+
+<ng-template #loadingOrEmpty>
+  <p>Nenhum evento encontrado ou carregando...</p>
+</ng-template>
+
+<style>
+  .error-message {
+    color: red;
+    margin: 10px 0;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .event-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .event-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #f9f9f9;
+  }
+
+  .event-actions {
+    margin-top: 10px;
+  }
+
+  .event-actions button {
+    margin-right: 10px;
+  }
+
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination button {
+    margin: 0 10px;
+  }
+</style>
